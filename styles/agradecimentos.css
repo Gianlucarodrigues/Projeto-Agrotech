@@ -1,0 +1,31 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #101026;
+    flex-direction: column;
+ }  
+ .text{
+    font-size: 45px;
+    color: #f5f5f5;
+    margin-bottom: 30px;
+ } 
+ .paragrafo{
+    color: #f5f5f5;
+    margin-bottom: 50px;
+ }
+.btn{
+    padding: 15px 55px;
+    background: #f5f5f5;
+    text-decoration: none;
+    color: #101026;
+    font-size: 18px;
+    transition: 0.5;
+}
+.btn:hover{
+    border-radius: 16px;
+}
+.body {
+    background:linear-gradient(to right, #063d4d, #4d8552);
+}

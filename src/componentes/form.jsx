@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Swal from "sweetalert2"; // instale com: npm install sweetalert2
-import "./form.css";
+import "../css/form.css";
 import planilhaImg from "../assets/planilha.jpg"
 
 function Form() {

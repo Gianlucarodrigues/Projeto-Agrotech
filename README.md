@@ -178,9 +178,4 @@ O projeto está com:
 - Componentes organizados  
 - Código simples e fácil de manter  
 
----
-
-## 🚀 Próximos passos sugeridos  
-- Criar novas páginas (`/sobre`, `/contato`)  
-- Armazenar dados no **localStorage** ou em um **backend**  
-- Melhorar o visual com **Tailwind**, **Bootstrap** ou outro framework  
+      

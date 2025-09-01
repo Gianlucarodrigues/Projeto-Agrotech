@@ -1,5 +1,7 @@
-import React from "react";
+
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import "../css/footer.css"; // seu CSS
+
 
 export default function Footer() {
   return (

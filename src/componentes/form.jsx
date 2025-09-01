@@ -1,7 +1,7 @@
+// src/componentes/Form.jsx
 import { useState } from "react";
-import Swal from "sweetalert2"; // instale com: npm install sweetalert2
-import "../css/form.css";
-import planilhaImg from "../assets/planilha.jpg"
+import "../css/form.css"; // CSS customizado
+import Graficos from "./Graficos"; // Importa o componente de gráficos
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -13,58 +13,40 @@ function Form() {
 
   const [formEnviado, setFormEnviado] = useState(false);
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
     const { nome, altura, peso, genero } = formData;
 
     if (nome && altura && peso && genero) {
       setFormEnviado(true);
     } else {
-      Swal.fire({
-        title: "Campos incompletos!",
-        text: "Por favor, preencha todos os campos antes de continuar.",
-        icon: "warning",
-        confirmButtonText: "OK",
-        confirmButtonColor: "#3085d6",
-        background: "#2c2c3c",
-        color: "#ffffff",
-      });
+      alert("Por favor, preencha todos os campos.");
     }
-  }
+  };
 
   return (
-    <main className="conteudoPrincipal">
+    <div className="form-container">
       {!formEnviado ? (
-        <form id="formulario" className="formulario" onSubmit={handleSubmit}>
-          <h2 className="mb-4">Preencha suas informações</h2>
+        <form className="formulario" onSubmit={handleSubmit}>
+          <h2 className="tituloForm">Preencha suas informações</h2>
 
           <label htmlFor="nome">Nome:</label>
           <input
             type="text"
             id="nome"
             name="nome"
-            className="form-control"
-            placeholder="Nome"
-            required
             value={formData.nome}
             onChange={handleChange}
+            placeholder="Digite seu nome"
           />
 
           <label htmlFor="altura">Altura (m):</label>
-          <select
-            id="altura"
-            name="altura"
-            className="form-select"
-            required
-            value={formData.altura}
-            onChange={handleChange}
-          >
+          <select id="altura" name="altura" value={formData.altura} onChange={handleChange}>
             <option value="">Selecione</option>
             <option value="1.60">1.60m</option>
             <option value="1.70">1.70m</option>
@@ -73,14 +55,7 @@ function Form() {
           </select>
 
           <label htmlFor="peso">Peso (kg):</label>
-          <select
-            id="peso"
-            name="peso"
-            className="form-select"
-            required
-            value={formData.peso}
-            onChange={handleChange}
-          >
+          <select id="peso" name="peso" value={formData.peso} onChange={handleChange}>
             <option value="">Selecione</option>
             <option value="60">60 kg</option>
             <option value="70">70 kg</option>
@@ -89,44 +64,26 @@ function Form() {
           </select>
 
           <label htmlFor="genero">Gênero:</label>
-          <select
-            id="genero"
-            name="genero"
-            className="form-select"
-            required
-            value={formData.genero}
-            onChange={handleChange}
-          >
+          <select id="genero" name="genero" value={formData.genero} onChange={handleChange}>
             <option value="">Selecione</option>
             <option value="masculino">Homem</option>
             <option value="feminino">Mulher</option>
             <option value="outro">Outro</option>
           </select>
 
-          <button type="submit" id="btn-confirmar" className="btn btn-primary">
-            Confirmar
-          </button>
+          <button type="submit" className="btnEnviar">Confirmar</button>
         </form>
       ) : (
-        <div id="resultado">
-          <h2
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontWeight: 700,
-              color: "white",
-              fontSize: "1.5rem",
-              marginBottom: "20px",
-              textAlign: "center",
-            }}
-          >
-            Sua planilha baseada em seus dados:
-          </h2>
-          <img src={planilhaImg} alt="planilha" />
+        <div className="resultado">
+          <h2>Formulário enviado com sucesso!</h2>
+          <p>Obrigado, {formData.nome}!</p>
+
+          {/* Renderiza o componente de gráficos */}
+          <Graficos />
         </div>
       )}
-    </main>
+    </div>
   );
 }
 
 export default Form;
-                    

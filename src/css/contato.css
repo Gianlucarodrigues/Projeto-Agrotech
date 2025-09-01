@@ -1,0 +1,54 @@
+/* contato.css */
+
+/* Container geral */
+section.container {
+  max-width: 600px;
+}
+
+/* Título */
+section.container h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs e textarea */
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Mensagens de erro */
+.invalid-feedback {
+  font-size: 0.875rem;
+  color: #dc3545;
+}
+
+/* Botão */
+.btn-primary {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.02);
+}
+
+/* Alerta de sucesso */
+.alert-success {
+  background: #d1e7dd;
+  border: none;
+  color: #0f5132;
+  font-size: 1rem;
+}

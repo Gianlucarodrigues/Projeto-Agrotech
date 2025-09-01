@@ -19,8 +19,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 1s ease-in;
   color: var(--branco);
+  animation: fadeIn 1s ease-in;
 }
 
 .container {
@@ -101,6 +101,12 @@ button:hover {
   color: var(--verde-claro);
 }
 
+.footer-text {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--verde-spotify);
+  font-weight: 500;
+}
 
 /* Animações */
 @keyframes fadeIn {

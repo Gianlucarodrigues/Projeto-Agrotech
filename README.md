@@ -1,181 +1,143 @@
-# 📌 Projeto React com Rotas e Formulário  
+README — UI no padrão Spotify (Agrotech)
 
-## ✅ O que foi feito  
-- Corrigidas todas as **importações** (componentes, imagens e estilos).  
-- Configurada a **navegação entre páginas** com `react-router-dom`.  
-- Removidos códigos desnecessários (como logos padrão do Vite).  
-- Estrutura organizada e **pronta para rodar com `npm run dev`**.  
+Este guia descreve tudo o que foi implementado/ajustado: páginas, componentes, CSS, navegação e correções de layout (overflow), sempre seguindo um visual inspirado no Spotify (verde, cinza-escuro, cartões com sombra e bordas suaves).
 
----
+Visão geral
 
-## 📂 Estrutura dos arquivos principais  
+Header Reformulado
 
-### 🔹 `main.jsx` — ponto inicial  
-Renderiza o React e ativa o sistema de rotas.  
-```jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
-import "./index.css";
+Formulário de Contato estilizado (validado, textarea sem redimensionar, feedback de sucesso).
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-);
-```
+Login com validação simples (nega acesso se as credenciais forem incorretas).
 
----
+Form (nome/altura/peso/gênero) com envio e tela de resultado.
 
-### 🔹 `App.jsx` — define as páginas  
-Mapeia as rotas e renderiza os componentes correspondentes.  
-```jsx
-import { Routes, Route } from "react-router-dom";
-import Header from "./componentes/header";
-import Form from "./componentes/form";
-import Login from "./pages/login";
+Gráficos (Recharts) com layout lado a lado (grid responsivo) e sem overflow.
 
-function App() {
-  return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Form />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </>
-  );
-}
+Página “Sobre nós” em grid de cartões, com botão “Voltar” e respiro superior.
 
-export default App;
-```
+Footer no padrão, com redes sociais.
 
----
+Correções de overflow e padronização de cores/estética.
 
-### 🔹 `header.jsx` — cabeçalho fixo  
-Contém a logo, links de navegação e o botão **Entrar**, que leva para `/login`.  
-```jsx
-import "../css/header.css";
-import Logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
+Paleta e princípios de estilo
 
-function Header() {
-  return (
-    <header>
-      <div className="logo">
-        <img src={Logo} alt="logo" />
-      </div>
-      <nav className="menu">
-        <ul>
-          <li><a href="#">Sobre</a></li>
-          <li><a href="#">Como funciona</a></li>
-          <li><a href="#">Contatos</a></li>
-        </ul>
-      </nav>
-      <Link to="/login">
-        <button className="btn-entrar">Entrar</button>
-      </Link>
-    </header>
-  );
-}
+Verde Spotify: #1db954 (variar para #1ed760, #0fa653).
 
-export default Header;
-```
+Fundo escuro: gradientes discretos + cartões #1a1a1a/#232323.
 
----
+Tipografia: Inter, peso forte para títulos, labels legíveis, contraste alto.
 
-### 🔹 `form.jsx` — formulário de usuário  
-Recebe dados, valida e exibe uma planilha após o envio.  
-```jsx
-import { useState } from "react";
-import Swal from "sweetalert2";
-import "../css/form.css";
-import planilhaImg from "../assets/planilha.jpg";
+Acessibilidade: foco visível (box-shadow verde), labels conectadas a inputs, navegação por teclado.
 
-function Form() {
-  const [formData, setFormData] = useState({ nome: "", altura: "", peso: "", genero: "" });
-  const [formEnviado, setFormEnviado] = useState(false);
+Contato
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  }
+O que foi feito:
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const { nome, altura, peso, genero } = formData;
-    if (nome && altura && peso && genero) {
-      setFormEnviado(true);
-    } else {
-      Swal.fire({
-        title: "Campos incompletos!",
-        text: "Por favor, preencha todos os campos.",
-        icon: "warning",
-        confirmButtonText: "OK",
-        confirmButtonColor: "#3085d6",
-        background: "#2c2c3c",
-        color: "#ffffff",
-      });
-    }
-  }
+Formulário no padrão Spotify (cartão escuro, labels legíveis, campos com foco verde).
 
-  return (
-    <main className="conteudoPrincipal">
-      {!formEnviado ? (
-        <form onSubmit={handleSubmit}>
-          <input name="nome" value={formData.nome} onChange={handleChange} />
-          {/* demais campos: altura, peso, gênero */}
-          <button type="submit">Confirmar</button>
-        </form>
-      ) : (
-        <div>
-          <h2>Sua planilha baseada em seus dados:</h2>
-          <img src={planilhaImg} alt="planilha" />
-        </div>
-      )}
-    </main>
-  );
-}
+Textarea sem redimensionar (resize: none) e espaço acima do botão.
 
-export default Form;
-```
+Feedback visual de sucesso após envio (mensagem + reset do formulário).
 
----
+Validação básica: nome completo, e-mail válido, mensagem com tamanho mínimo.
 
-### 🔹 `login.jsx` — tela de login/cadastro  
-Tela já funcional, permite alternar entre login e cadastro.  
+Pontos-chave do CSS (contato.css):
 
----
+Containers com max-width, padding e box-shadow.
 
-## 📦 Instalação  
+textarea { resize: none; }
 
-Clone o repositório e instale as dependências:  
-```bash
+.btn-enviar { margin-top: 14px; }
+
+Fixes contra resets agressivos: forçar display: block e visibility.
+
+Login
+
+Comportamento:
+
+Não desabilitamos o botão.
+
+Nega acesso se as credenciais não forem as esperadas (ex.: teste@gmail.com / 12345).
+
+Em caso de sucesso, redireciona para Home (ou rota que você definir).
+
+Form (Nome/Altura/Peso/Gênero) + Resultado com Gráficos
+
+O que foi feito:
+
+Formulário estilizado no padrão.
+
+Após enviar com todos os campos válidos, aparece a tela de resultado com os gráficos.
+
+Responsivo e sem overflow.
+
+Importante (graficos.css):
+
+Container de resultado com limite de largura e sem overflow horizontal:
+
+Gráficos (Recharts) — lado a lado e responsivo
+
+O que foi feito:
+
+Dois gráficos em grid responsivo:
+
+1 coluna no mobile,
+
+2 colunas em ≥ 900px (ou com auto-fit para se adaptar).
+
+Correção de overflow:
+
+min-width: 0 em cada card (impede o conteúdo de “alargar” o grid).
+
+width: min(1200px, 96vw) no container.
+
+overflow-x: hidden no container de resultado.
+
+Trechos chave (graficos.css):
+
+Sobre nós
+
+O que foi feito:
+
+Grid de cartões (Quem somos / Missão / O que fazemos), estilo consistente.
+
+Botão Voltar com gradiente verde.
+
+“Respiro” acima do bloco de título + botão:
+
+Footer
+
+O que foi feito:
+
+Rodapé escuro, centralizado, com ícones de redes sociais.
+
+Hover com leve scale e cor verde.
+
+Boas práticas aplicadas
+
+Sem CSS global agressivo: classes específicas, evitar seletores genéricos (header {}) que quebram tudo.
+
+Acessibilidade: aria-labels, aria-expanded, role="dialog", foco visível.
+
+Responsividade: clamp(), min(), grid responsivo, ResponsiveContainer nos gráficos.
+
+Overflow: contenção de largura (min(1200px, 96vw)), min-width: 0 em itens do grid, overflow-x: hidden onde necessário.
+
+Header único no layout global (evita duplicação e conflitos).
+
+Rodando o projeto
 npm install
-```
-
-Instale também a biblioteca de rotas:  
-```bash
-npm install react-router-dom
-```
-
----
-
-## ▶️ Como rodar  
-Execute o projeto em modo de desenvolvimento:  
-```bash
 npm run dev
-```
+# abra http://localhost:5173
 
----
 
-## 🟢 Resultado  
-O projeto está com:  
-- Rotas configuradas (`/` e `/login`)  
-- Componentes organizados  
-- Código simples e fácil de manter  
+Dependências usadas:
 
-      
+react-router-dom
+
+recharts
+
+react-icons
+
+(opcional) bootstrap — se usar, evite misturar classes do Bootstrap com os componentes “blindados” para não alterar o layout.

@@ -1,6 +1,6 @@
 import Sobre from "../componentes/comsobre";
-import Header from "../componentes/Header";
-import Footer from "../componentes/Footer";
+import Header from "../componentes/header";
+import Footer from "../componentes/footer";
 import "../css/home.css"
 
 function Home() {

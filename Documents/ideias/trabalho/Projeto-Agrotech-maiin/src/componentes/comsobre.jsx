@@ -3,8 +3,8 @@ import { FaArrowLeft } from "react-icons/fa";
 import "../css/sobre.css";
 
 // use estes se o layout da sua app NÃO renderiza Header/Footer globalmente
-import Header from "../componentes/Header";
-import Footer from "../componentes/Footer";
+import Header from "../componentes/header";
+import Footer from "../componentes/footer";
 
 export default function Sobre() {
   return (

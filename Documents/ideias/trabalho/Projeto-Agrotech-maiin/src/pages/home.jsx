@@ -1,6 +1,6 @@
-import Form from "../componentes/Form";
-import Header from "../componentes/Header";
-import Footer from "../componentes/Footer";
+import Form from "../componentes/form";
+import Header from "../componentes/header";
+import Footer from "../componentes/footer";
 import "../css/home.css"
 
 function Home() {

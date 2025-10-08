@@ -2,7 +2,7 @@ import "../css/header.css"; // seu CSS customizado
 import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaArrowLeft } from "react-icons/fa";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "../componentes/Header";
+import Header from "../componentes/header";
 
 export default function Sobre() {
   return (<> <Header/>

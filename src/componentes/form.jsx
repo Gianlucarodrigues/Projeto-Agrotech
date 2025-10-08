@@ -2,6 +2,7 @@
 import { useState } from "react";
 import "../css/form.css"; // CSS customizado
 import Graficos from "./Graficos"; // Importa o componente de gráficos
+import Tabela from "./tabela"; // Importa o componente de tabela de dieta
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -80,6 +81,10 @@ function Form() {
 
           {/* Renderiza o componente de gráficos */}
           <Graficos />
+
+          <Tabela />
+
+          
         </div>
       )}
     </div>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import "../css/form.css";
 import Graficos from "./Graficos";
-import Tabela from"./tabela";
+import tabela from"./tabela";
 
 export default function Form() {
   const [formData, setFormData] = useState({

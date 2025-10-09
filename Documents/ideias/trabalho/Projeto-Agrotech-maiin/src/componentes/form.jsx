@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import "../css/form.css";
 import Graficos from "./Graficos";
+import Tabela from"./tabela";
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -132,7 +133,7 @@ export default function Form() {
           <p>Obrigado, {formData.nome}!</p>
           
           <Graficos />
-          
+            <Tabela />
         </div>
         
       )}

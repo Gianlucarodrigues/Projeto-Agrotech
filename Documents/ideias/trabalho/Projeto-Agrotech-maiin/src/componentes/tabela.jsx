@@ -4,7 +4,7 @@
 import "../css/graficos.css"; // mantém consistência de container se quiser reutilizar
 import "../css/tabela.css";   // estilos específicos da tabela
 
-function tabela() {
+function Tabela() {
   return (
     <div className="graficos-container tabela-container"> 
       <div className="grafico tabela-card">
@@ -52,4 +52,5 @@ function tabela() {
   );
 }
 
-export default tabela;
+
+export default Tabela;

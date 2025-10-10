@@ -1,0 +1,83 @@
+/* --------------------- */
+/* Container geral da Tabela (segue o padrão) */
+.tabela-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: #f0f0f5;
+}
+
+/* Card da tabela (mesma base de .grafico) */
+.tabela-card {
+  flex: 1 1 400px;
+  background: #252544;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+  max-width: 900px;
+}
+.tabela-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Título (mesmo sizing/cores) */
+.tabela-titulo {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Tabela em tema escuro, combinando com o layout */
+.tabela-dieta {
+  width: 100%;
+  border-collapse: collapse;
+  background: #233a1e;      /* levemente mais claro que o card */
+  color: #f0f0f5;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  overflow: hidden;         /* mantém o radius nas bordas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Cabeçalho (usa o gradiente do botão .btnEnviar) */
+.tabela-dieta thead th {
+  background: linear-gradient(135deg, #1e5d23, #13fe65);
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 700;
+  border-bottom: 2px solid #3a5a43;
+}
+
+/* Células e listrado suave */
+.tabela-dieta td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #3b5a3a;
+  text-align: left;
+}
+.tabela-dieta tbody tr:nth-child(even) {
+  background: #30542d;
+}
+
+/* Hover coerente com o resto do tema */
+.tabela-dieta tbody tr:hover {
+  background: rgba(74, 226, 122, 0.15);
+  transition: background 0.3s ease;
+}
+
+/* Responsivo (segue os breakpoints existentes) */
+@media (max-width: 960px) {
+  .tabela-card { padding: 20px; }
+}
+@media (max-width: 500px) {
+  .tabela-titulo { font-size: 1rem; }
+  .tabela-dieta th,
+  .tabela-dieta td { padding: 8px 10px; font-size: 0.85rem; }
+}

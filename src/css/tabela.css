@@ -14,7 +14,8 @@
 /* Card da tabela (mesma base de .grafico) */
 .tabela-card {
   flex: 1 1 400px;
-  background: #252544;
+    background: linear-gradient(180deg, #232323, var(--card));
+
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);

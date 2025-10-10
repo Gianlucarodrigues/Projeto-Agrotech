@@ -225,16 +225,3 @@ html, body { height:100%; }
 /* erros */
 .erro{ color:#ff7777; font-size:.9rem; margin-top:4px; }
 
-
-.resultado {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centraliza tudo dentro da .resultado */
-}
-
-.resultado table {
-  margin-top: 24px;
-  width: auto; /* garante que a tabela não ocupe 100% da largura */
-  gap: 20px;
-
-}

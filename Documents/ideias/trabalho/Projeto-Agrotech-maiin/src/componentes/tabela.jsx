@@ -6,7 +6,7 @@ import "../css/tabela.css";   // estilos específicos da tabela
 
 function Tabela() {
   return (
-      <div className="grafico tabela-card">
+      <div className="tabela-card">
         <h3 className="tabela-titulo">Plano de Dieta</h3>
 
         <table className="tabela-dieta">
@@ -52,4 +52,5 @@ function Tabela() {
 
 
 export default Tabela;
+
 

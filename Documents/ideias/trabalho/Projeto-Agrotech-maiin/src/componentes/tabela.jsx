@@ -1,7 +1,3 @@
-
-// src/componentes/TabelaDieta.jsx
-
-import "../css/graficos.css"; // mantém consistência de container se quiser reutilizar
 import "../css/tabela.css";   // estilos específicos da tabela
 
 function Tabela() {
@@ -52,5 +48,6 @@ function Tabela() {
 
 
 export default Tabela;
+
 
 

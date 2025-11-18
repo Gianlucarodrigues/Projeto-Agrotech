@@ -27,6 +27,7 @@ export default function Form() {
     if (!formData.altura || formData.altura === "++") e.altura = "Selecione sua altura.";
     if (!formData.peso || formData.peso === "++") e.peso = "Selecione seu peso.";
     if (!formData.genero) e.genero = "Selecione o gênero.";
+    if (!formData.objetivo) e.objetivo = "Selecione o seu objetivo.";
     return e;
   };
 
@@ -124,6 +125,35 @@ export default function Form() {
             </select>
             {erros.genero && <span className="erro">{erros.genero}</span>}
           </div>
+
+          <div className="campo campo--full">
+            <label htmlFor="restricao">Restrição Alimentar:</label>
+            <input
+              id="restricao"
+              name="restricao"
+              placeholder="Caso tenha, descreva aqui"
+            />
+
+          </div>
+          <div className="campo campo--full">
+          <label htmlFor="objetivo">Objetivo:</label>
+          <select
+            id="objetivo"
+            name="objetivo"
+            value={formData.objetivo}
+            onChange={handleChange}
+            aria-invalid={!!erros.objetivo}
+          >
+            <option value="">Selecione</option>
+            <option value="emagrecimento">Perda de gordura / emagrecimento</option>
+            <option value="hipertrofia">Hipertrofia muscular (ganho de massa magra)</option>
+            <option value="esporte">Melhora de desempenho esportivo</option>
+            <option value="metabolica">Melhora da saúde metabólica</option>
+            <option value="força">Dieta para aumento de força</option>
+          </select>
+          {erros.objetivo && <span className="erro">{erros.objetivo}</span>}
+        </div>
+
 
           <button type="submit" className="btnEnviar campo--full">Confirmar</button>
         </form>

@@ -32,6 +32,7 @@
   color: #f5fff8;
   min-width: 0;  /* ESSENCIAL: impede o conteúdo de forçar overflow no grid */
   box-sizing: border-box;
+  margin-top: 20px;
 }
 
 .grafico-card h3{
